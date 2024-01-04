@@ -1,11 +1,11 @@
 import { Header } from "./components/Header"
-import { Task } from "./components/Tasks"
+import { Tasks } from "./components/Tasks"
 
 function App() {
   return (
     <>
       <Header />
-      <Task />
+      <Tasks />
     </>
   )
 }
