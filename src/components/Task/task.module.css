@@ -12,7 +12,7 @@
 
 .task p {
     font-size: 0.875rem;
-    color: var(--gray-300);
+    color: var(--gray-100);
     line-height: 1.18rem;
     margin-right: auto;
 }

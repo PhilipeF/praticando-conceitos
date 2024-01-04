@@ -1,14 +1,19 @@
 import { FaRegTrashAlt } from "react-icons/fa";
 import styles from './task.module.css';
+import { ITask } from "../../App";
 
-export function Task() {
+interface Props {
+    task: ITask;
+}
+
+export function Task({ task }: Props) {
     return (
         <div className={styles.task}>
             <button className={styles.checkContainer}>
                 <div />
             </button>
             <p>
-                Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+                {task.title}
             </p>
             <button className={styles.btnTrash}>
                 <FaRegTrashAlt size={20} />
