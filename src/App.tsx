@@ -22,7 +22,7 @@ function App() {
     }
   ]);
 
-  // Criando a funcionalidade de adicionar novas s
+  // Criando a funcionalidade de adicionar novas tarefas
   function addTask(taskTitle: string) {
     setTask([
       ...tasks,
@@ -33,7 +33,6 @@ function App() {
       }
     ])
   }
-
 
   return (
     <>
