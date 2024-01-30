@@ -1,12 +1,14 @@
 import { FaRegTrashAlt } from "react-icons/fa";
-import styles from './task.module.css';
 import { ITask } from "../../App";
+
+import styles from './task.module.css';
 
 interface Props {
     task: ITask;
+    onDelete: (taskId: string) => void;
 }
 
-export function Task({ task }: Props) {
+export function Task({ task, onDelete }: Props) {
     return (
         <div className={styles.task}>
             <button className={styles.checkContainer}>
@@ -15,11 +17,13 @@ export function Task({ task }: Props) {
             <p>
                 {task.title}
             </p>
-            <button className={styles.btnTrash}>
+            <button
+                onClick={() => onDelete(task.id)}
+                className={styles.btnTrash}
+            >
                 <FaRegTrashAlt size={20} />
             </button>
         </div>
     )
 }
 
-// Parei no minuto 38

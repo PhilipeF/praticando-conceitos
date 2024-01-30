@@ -43,6 +43,7 @@ function App() {
       <Header onAddTask={addTask} />
       <Tasks
         tasks={tasks}
+        onDelete={deleteTaskById}
       />
     </>
   )
