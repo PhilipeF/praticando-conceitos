@@ -14,7 +14,7 @@ function App() {
       id: "1",
       title: "teste",
       isCompleted: true
-    }, 
+    },
     {
       id: "2",
       title: "teste-2",
@@ -22,7 +22,6 @@ function App() {
     }
   ]);
 
-  // Criando a funcionalidade de adicionar novas tarefas
   function addTask(taskTitle: string) {
     setTask([
       ...tasks,
@@ -34,9 +33,14 @@ function App() {
     ])
   }
 
+  function deleteTaskById(taskId: string) {
+    const newTasks = tasks.filter(task => task.id !== taskId);
+    setTask(newTasks)
+  }
+
   return (
     <>
-    <Header onAddTask={addTask} />
+      <Header onAddTask={addTask} />
       <Tasks
         tasks={tasks}
       />
