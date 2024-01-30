@@ -11,26 +11,24 @@ interface Props {
 export function Header({ onAddTask }: Props) {
     const [title, setTitle] = useState('')
 
-
     function handleSubmit(event: FormEvent) {
         event.preventDefault();
-        onAddTask(title)    
-        setTitle('')   
+        onAddTask(title)
+        setTitle('')
     }
 
     function onChangeTitle(event: ChangeEvent<HTMLInputElement>) {
         setTitle(event.target.value);
     }
 
-
     return (
         <header className={styles.header} onSubmit={handleSubmit}>
             <img src={todoLogo} alt="" />
             <form className={styles.newTaskForm}>
-                <input 
-                placeholder="Adicione uma nova tarefa" 
-                onChange={onChangeTitle}
-                value={title}
+                <input
+                    placeholder="Adicione uma nova tarefa"
+                    onChange={onChangeTitle}
+                    value={title}
                 />
                 <button>
                     Criar
