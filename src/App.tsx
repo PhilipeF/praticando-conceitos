@@ -21,6 +21,8 @@ function App() {
     //   isCompleted: false
     // }
   ]);
+
+  // Aqui vou iniciar a persistencia de dados utilizando o localStorage
   
 
   function addTask(taskTitle: string) {
