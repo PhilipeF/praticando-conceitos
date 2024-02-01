@@ -22,8 +22,7 @@ function App() {
     // }
   ]);
 
-  // Aqui vou iniciar a persistencia de dados utilizando o localStorage
-  
+  // Aqui vou iniciar a persistencia de dados utilizando o localStorage. 
 
   function addTask(taskTitle: string) {
     setTask([
