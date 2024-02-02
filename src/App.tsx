@@ -1,6 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Header } from "./components/Header"
 import { Tasks } from "./components/Tasks"
+
+const LOCAL_STORAGE_KEY = "todo:savedTasks";
 
 export interface ITask {
   id: string;
@@ -9,23 +11,28 @@ export interface ITask {
 }
 
 function App() {
-  const [tasks, setTask] = useState<ITask[]>([
-    // {
-    //   id: "1",
-    //   title: "teste",
-    //   isCompleted: true
-    // },
-    // {
-    //   id: "2",
-    //   title: "teste-2",
-    //   isCompleted: false
-    // }
-  ]);
+  const [tasks, setTasks] = useState<ITask[]>([]);
 
-  // Aqui vou iniciar a persistencia de dados utilizando o localStorage. 
+  function loadSavedTasks() {
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (saved) {
+      setTasks(JSON.parse(saved));
+    }
+  }
+
+  useEffect(() => {
+    loadSavedTasks()
+  }, [])
+
+  function setTasksAndSave(newTasks: ITask[]) {
+    setTasks(newTasks)
+
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
+  }
 
   function addTask(taskTitle: string) {
-    setTask([
+    setTasksAndSave([
       ...tasks,
       {
         id: crypto.randomUUID(),
@@ -37,7 +44,7 @@ function App() {
 
   function deleteTaskById(taskId: string) {
     const newTasks = tasks.filter(task => task.id !== taskId);
-    setTask(newTasks)
+    setTasksAndSave(newTasks)
   }
 
   function toggleTaskCompletedById(taskId: string) {
@@ -50,7 +57,7 @@ function App() {
       }
       return task;
     });
-    setTask(newTasks);
+    setTasksAndSave(newTasks);
   }
 
   return (
