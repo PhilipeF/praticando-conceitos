@@ -1,8 +1,8 @@
-import todoLogo from "../../assets/todoLogo.svg";
-import { AiOutlinePlusCircle } from 'react-icons/ai';
-
-import styles from '../Header/header.module.css';
 import { ChangeEvent, FormEvent, useState } from "react";
+import styles from '../Header/header.module.css';
+import todoLogo from "../../assets/todoLogo.svg";
+
+import { AiOutlinePlusCircle } from 'react-icons/ai';
 
 interface Props {
     onAddTask: (taskTitle: string) => void;

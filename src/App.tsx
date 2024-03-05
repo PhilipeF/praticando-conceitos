@@ -39,6 +39,7 @@ function App() {
         title: taskTitle,
         isCompleted: false
       }
+      
     ])
   }
 
