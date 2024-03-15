@@ -32,15 +32,19 @@ function App() {
   }
 
   function addTask(taskTitle: string) {
-    setTasksAndSave([
-      ...tasks,
-      {
-        id: crypto.randomUUID(),
-        title: taskTitle,
-        isCompleted: false
-      }
-      
-    ])
+    if (taskTitle.length === 0) {
+      alert('Por favor adicione uma nova tarefa.');
+
+    } else {
+      setTasksAndSave([
+        ...tasks,
+        {
+          id: crypto.randomUUID(),
+          title: taskTitle,
+          isCompleted: false
+        }
+      ])
+    }
   }
 
   function deleteTaskById(taskId: string) {
